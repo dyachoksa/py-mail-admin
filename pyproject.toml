@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "mail-admin"
+version = "1.0.0"
+description = "Postfix/Dovecot Mail System Admin Interface"
+authors = ["Sergey Dyachok <sergey@sdyachok.com.ua>"]
+license = "MIT"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.eggs
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+  | docs
+  | node_modules
+)/
+'''
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
