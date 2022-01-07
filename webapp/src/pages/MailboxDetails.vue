@@ -20,22 +20,41 @@
             {{ mailbox?.name }}@{{ mailbox?.domain_name }}
           </dd>
         </div>
+
         <div class="sm:col-span-1">
           <dt class="text-sm font-medium text-gray-500">Status</dt>
           <dd class="mt-1 text-sm text-gray-900">
             <status-label :is-active="mailbox?.is_active" />
           </dd>
         </div>
+
         <div class="sm:col-span-1">
           <dt class="text-sm font-medium text-gray-500">Created at</dt>
           <dd class="mt-1 text-sm text-gray-900">
             <date-label :date="mailbox?.created_at" />
           </dd>
         </div>
+
         <div class="sm:col-span-1">
           <dt class="text-sm font-medium text-gray-500">Updated at</dt>
           <dd class="mt-1 text-sm text-gray-900">
             <date-label :date="mailbox?.updated_at" />
+          </dd>
+        </div>
+
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Last login at</dt>
+          <dd class="mt-1 text-sm text-gray-900">
+            <date-label v-if="mailbox?.last_login_at" :date="mailbox?.last_login_at" />
+            <span v-else>-</span>
+          </dd>
+        </div>
+
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Last login IP:</dt>
+          <dd class="mt-1 text-sm text-gray-900">
+            <span v-if="mailbox?.last_login_ip">{{ mailbox?.last_login_ip }}</span>
+            <span v-else>-</span>
           </dd>
         </div>
       </dl>

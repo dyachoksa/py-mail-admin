@@ -2,6 +2,7 @@ import datetime as dt
 
 import sqlalchemy as sa
 from passlib.hash import bcrypt
+from sqlalchemy.dialects.postgresql import INET
 
 from app.ext import db
 
@@ -27,6 +28,8 @@ class Mailbox(db.Model):
         server_default=sa.true(),
         info={"label": "Is active?"},
     )
+    last_login_at = db.Column(db.DateTime, nullable=True, default=None)
+    last_login_ip = db.Column(INET, nullable=True, default=None)
     created_at = db.Column(db.DateTime, default=dt.datetime.utcnow)
     updated_at = db.Column(
         db.DateTime, default=dt.datetime.utcnow, onupdate=dt.datetime.utcnow

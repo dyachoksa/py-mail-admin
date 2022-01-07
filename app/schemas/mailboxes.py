@@ -6,6 +6,8 @@ class MailboxSchema(ma.SQLAlchemyAutoSchema):
     name = ma.auto_field(required=True)
     password = ma.auto_field(load_only=True)
     domain_name = ma.String(dump_only=True, attribute="domain_name")
+    last_login_at = ma.auto_field(dump_only=True)
+    last_login_ip = ma.auto_field(dump_only=True)
     created_at = ma.auto_field(dump_only=True)
     updated_at = ma.auto_field(dump_only=True)
 

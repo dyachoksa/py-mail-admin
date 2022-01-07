@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 
+from .cli import register_commands
 from .ext import db, ma, jwt
 from .views.aliases import aliases
 from .views.auth import auth
@@ -26,5 +27,7 @@ def create_app():
     app.register_blueprint(mailboxes, url_prefix="/api/mailboxes")
     app.register_blueprint(aliases, url_prefix="/api/aliases")
     app.register_blueprint(metrics, url_prefix="/api/metrics")
+
+    register_commands(app)
 
     return app
