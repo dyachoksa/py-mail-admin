@@ -1,0 +1,12 @@
+[Unit]
+Description=uWSGI Python mail admin backend server
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/apps/mail-admin
+ExecStart=/home/apps/mail-admin/.venv/bin/uwsgi contrib/uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target

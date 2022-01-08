@@ -5,8 +5,9 @@ flask-marshmallow
 marshmallow-sqlalchemy
 python-dotenv
 whitenoise
-passlib~=1.7.4
+passlib[bcrypt]~=1.7.4
 psycopg2-binary
+uwsgi
 
 SQLAlchemy~=1.4.28
 marshmallow~=3.14.1
